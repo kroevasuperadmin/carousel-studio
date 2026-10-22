@@ -1,0 +1,42 @@
+{
+  "id": "ugc-one-offer",
+  "platform": "linkedin",
+  "subject": "ugc",
+  "theme": "acid",
+  "caption": "If the offer needs a paragraph, it is fog.\n\nOne line: who it is for, and what changes. Film that.",
+  "slides": [
+    {
+      "layout": "stat",
+      "kicker": "The offer",
+      "stat": "1 line",
+      "headline": "A paragraph means the offer is fog.",
+      "body": "Say who it is for and what changes.",
+      "background": "assets/backgrounds/ugc-glow.svg"
+    },
+    {
+      "layout": "quote",
+      "kicker": "From the shoot",
+      "headline": "They bought the result, not our process.",
+      "body": "Said once the intro was gone"
+    },
+    {
+      "layout": "compare",
+      "kicker": "Same product",
+      "headline": "Lead with what changes.",
+      "body": "Our system helps teams make better content with a stack of tools.\n\nYou record six lines on Thursday. We cut a week of posts."
+    },
+    {
+      "layout": "timeline",
+      "kicker": "A clean week",
+      "headline": "Offer, then proof, then the ask.",
+      "body": "Mon | The result in one line.\nWed | A clip of the work.\nFri | The ask, with a date."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Use it",
+      "headline": "Write the offer in one breath.",
+      "body": "The rest can wait its turn.",
+      "cta": "Then film that line"
+    }
+  ]
+}

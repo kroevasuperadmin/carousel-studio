@@ -1,0 +1,41 @@
+{
+  "id": "dossair-quiet-edit",
+  "platform": "linkedin",
+  "subject": "dossair",
+  "theme": "light",
+  "caption": "Editing is an hour, not a mood.\n\nRead it aloud, mark the words that show off, cut the tour, and send the line you would actually say.",
+  "slides": [
+    {
+      "layout": "quote",
+      "kicker": "On editing",
+      "headline": "Cut until a sentence can stand alone.",
+      "body": "A rule from the desk"
+    },
+    {
+      "layout": "timeline",
+      "kicker": "One sitting",
+      "headline": "How the hour goes.",
+      "body": "Read | Out loud. Do not fix yet.\nMark | Circle words that show off.\nCut | Drop the tour.\nSend | If you would say it, ship it."
+    },
+    {
+      "layout": "compare",
+      "kicker": "Same point",
+      "headline": "Shorter, and easier to use.",
+      "body": "We are excited to align stakeholders across the whole quarter.\n\nThe brief ships Monday. Late review is the risk."
+    },
+    {
+      "layout": "frame",
+      "kicker": "On screen",
+      "headline": "The brief, not the deck.",
+      "body": "Title, decision, risk, date.",
+      "background": "assets/backgrounds/dossair-proof.svg"
+    },
+    {
+      "layout": "cta",
+      "kicker": "Try it once",
+      "headline": "Edit once, then send it.",
+      "body": "The reply is the review.",
+      "cta": "Send the short version"
+    }
+  ]
+}

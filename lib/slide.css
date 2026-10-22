@@ -1,0 +1,584 @@
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  width: var(--w);
+  height: var(--h);
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--text-face), sans-serif;
+  font-weight: 400;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+html { --pad-x: 92px; --body-size: 32px; }
+html[data-ratio="landscape"] { --pad-x: 84px; --body-size: 27px; }
+html.has-image { --line: rgba(244, 247, 246, 0.38); }
+html.has-image[data-theme="acid"] { --line: rgba(229, 255, 87, 0.45); }
+html.has-image .chrome,
+html.has-image .body,
+html.has-image .kicker,
+html.has-image .caption,
+html.has-image .col-b .body { color: var(--ink); }
+
+body.measure [data-contrast] {
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  text-decoration-color: transparent !important;
+}
+
+.slide {
+  position: relative;
+  width: var(--w);
+  height: var(--h);
+  overflow: hidden;
+  background: var(--bg);
+}
+.bg, .scrim {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.bg { object-fit: cover; z-index: 0; }
+.scrim {
+  z-index: 1;
+  background: var(--scrim);
+  opacity: var(--scrim-alpha);
+}
+
+.brand, .main, .chrome, .badge { position: relative; z-index: 2; }
+
+.brand {
+  position: absolute;
+  z-index: 3;
+  top: 56px;
+  left: var(--pad-x);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+html[data-ratio="landscape"] .brand { top: 40px; }
+html[data-subject="sigmahack"] .brand {
+  font-family: var(--display), sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-size: 20px;
+}
+html[data-subject="sigmahack"] .brand::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+  background: var(--accent);
+  transform: translateY(-1px);
+}
+html[data-subject="ugc"] .brand {
+  font-family: var(--display), sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  font-size: 28px;
+}
+
+.chrome {
+  position: absolute;
+  z-index: 3;
+  left: var(--pad-x);
+  right: var(--pad-x);
+  bottom: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+html[data-ratio="landscape"] .chrome { bottom: 36px; font-size: 15px; }
+html[data-subject="dossair"] .chrome {
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+.counter { font-variant-numeric: tabular-nums; }
+.swipe { display: inline-flex; align-items: center; gap: 10px; }
+.arrow { display: block; }
+
+.main {
+  position: absolute;
+  z-index: 2;
+  top: 128px;
+  left: var(--pad-x);
+  right: var(--pad-x);
+  bottom: 132px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+html[data-ratio="landscape"] .main { top: 100px; bottom: 108px; }
+
+.kicker {
+  margin: 0 0 22px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+html[data-subject="dossair"] .kicker.tab {
+  display: inline-flex;
+  align-self: flex-start;
+  margin-bottom: 28px;
+  padding: 8px 12px 7px;
+  background: var(--panel-bg);
+  color: var(--panel-ink);
+  border: 1px solid var(--line);
+}
+.display {
+  margin: 0;
+  font-family: var(--display), serif;
+  font-weight: var(--display-weight);
+  font-size: var(--display-size);
+  letter-spacing: var(--tracking);
+  line-height: 0.96;
+}
+html[data-subject="ugc"] .display {
+  text-transform: uppercase;
+  line-height: 0.86;
+}
+.headline {
+  margin: 0;
+  font-size: calc(var(--body-size) * 1.28);
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+}
+.body, .what, .item, .caption, .attrib {
+  margin: 0;
+  font-size: var(--body-size);
+  line-height: 1.35;
+}
+.body, .caption, .attrib { color: var(--muted); }
+.rule {
+  display: block;
+  width: 72px;
+  height: 3px;
+  margin: 22px 0;
+  background: var(--accent);
+}
+html[data-subject="dossair"] .rule { width: 56px; height: 1px; }
+html[data-subject="ugc"] .rule { width: 88px; height: 8px; }
+
+.panel .muted, .kicker.muted { color: var(--panel-muted); }
+.fill-accent { background: var(--accent); color: var(--accent-ink); }
+.fill-accent .brand,
+.fill-accent .kicker,
+.fill-accent .display,
+.fill-accent .brand::before { color: var(--accent-ink); }
+.fill-accent .brand::before { background: var(--accent-ink); }
+
+/* Stat */
+html[data-layout="stat"] .main { justify-content: center; }
+html[data-layout="stat"] .figure {
+  margin: 0 0 18px;
+  line-height: 0.82;
+  white-space: nowrap;
+}
+html[data-layout="stat"] .stat-copy .headline { max-width: 16em; }
+html[data-layout="stat"] .stat-copy .body { max-width: 22em; }
+html[data-ratio="landscape"][data-layout="stat"] .stat-row {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: end;
+}
+html[data-ratio="landscape"][data-layout="stat"] .figure {
+  white-space: normal;
+  margin: 0;
+}
+
+/* Oversized headline */
+html[data-layout="headline"] .main,
+html[data-layout="cta"] .main,
+html[data-layout="sticker"] .main { justify-content: flex-end; }
+html[data-layout="headline"] .kicker,
+html[data-layout="cta"] .kicker,
+html[data-layout="sticker"] .kicker { margin-bottom: auto; }
+html[data-layout="headline"] .hero,
+html[data-layout="sticker"] .hero,
+html[data-layout="cta"] .hero { max-width: 14em; width: fit-content; }
+html[data-layout="headline"] .body,
+html[data-layout="sticker"] .body,
+html[data-layout="cta"] .body {
+  max-width: 20em;
+  margin-top: 28px;
+}
+
+/* Split */
+html[data-layout="split"] .main {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 118px;
+}
+html[data-ratio="landscape"][data-layout="split"] .main { bottom: 96px; }
+html[data-layout="split"] .cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  min-height: 0;
+}
+html[data-layout="split"] .col {
+  min-width: 0;
+  padding: 132px 40px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+html[data-layout="split"] .col-a .kicker { margin-bottom: auto; }
+html[data-layout="split"] .col-b .body { margin-top: auto; }
+html[data-ratio="landscape"][data-layout="split"] .col { padding-top: 108px; padding-bottom: 28px; }
+html[data-layout="split"] .col-a { padding-left: var(--pad-x); }
+html[data-layout="split"] .col-b { padding-right: var(--pad-x); }
+html[data-subject="dossair"][data-layout="split"] .col-b { border-left: 1px solid var(--line); }
+html[data-subject="ugc"][data-layout="split"] .col-a { box-shadow: inset 14px 0 0 var(--accent); }
+html[data-layout="split"] .col-b .body { color: var(--muted); font-size: calc(var(--body-size) * 1.05); }
+
+/* Quote */
+html[data-layout="quote"] .card {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 56px 52px;
+  background: var(--raised);
+  color: var(--panel-ink);
+  border: 1px solid var(--line);
+}
+html[data-ratio="landscape"][data-layout="quote"] .card { padding: 40px 48px; }
+html[data-subject="dossair"] .quote-text {
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.08;
+}
+html[data-subject="sigmahack"][data-layout="quote"] .card {
+  border: 0;
+  border-top: 18px solid var(--accent);
+}
+html[data-subject="ugc"][data-layout="quote"] .card {
+  border: 0;
+  box-shadow: inset 16px 0 0 var(--accent);
+}
+html[data-layout="quote"] .attrib { margin-top: 32px; max-width: 24em; }
+
+/* Checklist */
+html[data-layout="checklist"] .list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+}
+html[data-layout="checklist"] .list li {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+}
+html[data-layout="checklist"] .list li:last-child { border-bottom: 1px solid var(--line); }
+.mark-wrap { display: flex; align-items: center; gap: 10px; }
+.mark {
+  font-family: var(--display), serif;
+  font-weight: var(--display-weight);
+  font-size: 28px;
+  line-height: 1;
+  color: var(--ink);
+}
+html[data-subject="sigmahack"] .mark {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: 18px;
+}
+html[data-subject="dossair"] .tick,
+html[data-subject="ugc"] .tick {
+  display: block;
+  background: var(--accent);
+}
+html[data-subject="dossair"] .tick { width: 8px; height: 8px; }
+html[data-subject="ugc"] .tick { width: 26px; height: 8px; }
+html[data-subject="sigmahack"] .tick { display: none; }
+html[data-subject="sigmahack"][data-layout="checklist"] .list li,
+html[data-subject="ugc"][data-layout="checklist"] .list li { border: 0; padding: 16px 0; }
+html[data-ratio="landscape"][data-layout="checklist"] .list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 48px;
+}
+.item { font-size: calc(var(--body-size) * 1.05); line-height: 1.25; }
+
+/* Before / after */
+html[data-layout="compare"] .panels {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 8px;
+  flex: 1;
+  min-height: 0;
+}
+html[data-ratio="landscape"][data-layout="compare"] .panels { flex-direction: row; }
+html[data-layout="compare"] .panel {
+  flex: 1;
+  min-height: 0;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+html[data-layout="compare"] .before { background: var(--raised); color: var(--panel-muted); }
+html[data-layout="compare"] .after { background: var(--accent); color: var(--accent-ink); }
+html[data-layout="compare"] .before p { text-decoration: line-through; text-decoration-thickness: 2px; }
+html[data-layout="compare"] .tag {
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+html[data-layout="compare"] .panel p { font-size: calc(var(--body-size) * 1.05); line-height: 1.3; }
+
+/* Timeline */
+html[data-layout="timeline"] .steps {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+html[data-layout="timeline"] .steps li {
+  position: relative;
+  padding: 6px 0 28px 40px;
+  border-left: 2px solid var(--line);
+}
+html[data-layout="timeline"] .node {
+  position: absolute;
+  left: -7px;
+  top: 12px;
+  width: 12px;
+  height: 12px;
+  background: var(--accent);
+}
+html[data-subject="dossair"][data-layout="timeline"] .node {
+  background: transparent;
+  border: 1px solid var(--accent);
+  width: 11px;
+  height: 11px;
+}
+html[data-subject="sigmahack"][data-layout="timeline"] .node {
+  width: 16px;
+  height: 16px;
+  left: -9px;
+}
+html[data-subject="ugc"][data-layout="timeline"] .node {
+  width: 22px;
+  height: 7px;
+  top: 16px;
+}
+html[data-layout="timeline"] .when {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+html[data-layout="timeline"] .what { display: block; font-size: calc(var(--body-size) * 1.12); }
+html[data-subject="ugc"][data-layout="timeline"] .what {
+  font-family: var(--display), sans-serif;
+  font-weight: var(--display-weight);
+  font-size: calc(var(--body-size) * 1.55);
+  letter-spacing: var(--tracking);
+  line-height: 0.9;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+html[data-ratio="landscape"][data-layout="timeline"] .steps {
+  flex-direction: row;
+  gap: 28px;
+  margin-top: 36px;
+}
+html[data-ratio="landscape"][data-layout="timeline"] .steps li {
+  flex: 1;
+  border-left: 0;
+  border-top: 2px solid var(--line);
+  padding: 28px 16px 0 0;
+}
+html[data-ratio="landscape"][data-layout="timeline"] .node { left: 0; top: -8px; }
+html[data-ratio="landscape"][data-subject="ugc"][data-layout="timeline"] .node { top: -5px; }
+
+/* Screenshot frame */
+html[data-layout="frame"] .device {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background: var(--raised);
+  border: 1px solid var(--line);
+}
+html[data-layout="frame"] .screen {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--bg);
+}
+html[data-layout="frame"] .shot {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+html[data-layout="frame"] .caption { margin-top: 18px; }
+html[data-subject="sigmahack"][data-layout="frame"] .device {
+  border: 14px solid var(--accent);
+  padding: 14px;
+  background: var(--bg);
+}
+html[data-subject="sigmahack"][data-layout="frame"] .dots {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+html[data-subject="sigmahack"][data-layout="frame"] .dots i {
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  display: block;
+}
+html[data-subject="ugc"][data-layout="frame"] .device {
+  width: 68%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 10px solid var(--panel-ink);
+  border-radius: 36px;
+  padding: 16px 12px 18px;
+  background: var(--bg);
+}
+html[data-ratio="landscape"][data-subject="ugc"][data-layout="frame"] .device { width: 34%; }
+html[data-subject="ugc"][data-layout="frame"] .screen { border-radius: 22px; }
+html[data-subject="ugc"][data-layout="frame"] .home {
+  width: 92px;
+  height: 6px;
+  margin: 14px auto 0;
+  border-radius: 99px;
+  background: var(--panel-muted);
+}
+html[data-subject="dossair"][data-layout="frame"] .crops { position: absolute; inset: 8px; pointer-events: none; }
+html[data-subject="dossair"][data-layout="frame"] .crops i {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 0 solid var(--panel-ink);
+}
+html[data-subject="dossair"][data-layout="frame"] .crops i:nth-child(1) { top: 0; left: 0; border-top-width: 1px; border-left-width: 1px; }
+html[data-subject="dossair"][data-layout="frame"] .crops i:nth-child(2) { top: 0; right: 0; border-top-width: 1px; border-right-width: 1px; }
+html[data-subject="dossair"][data-layout="frame"] .crops i:nth-child(3) { bottom: 0; left: 0; border-bottom-width: 1px; border-left-width: 1px; }
+html[data-subject="dossair"][data-layout="frame"] .crops i:nth-child(4) { bottom: 0; right: 0; border-bottom-width: 1px; border-right-width: 1px; }
+.dots, .home, .crops { display: none; }
+html[data-subject="sigmahack"] .dots,
+html[data-subject="ugc"] .home,
+html[data-subject="dossair"] .crops { display: block; }
+html[data-subject="sigmahack"] .dots { display: flex; }
+.mock {
+  height: 100%;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.mock i { display: block; height: 12px; background: var(--line); }
+.mock i:first-child { width: 42%; height: 26px; background: var(--accent); }
+.mock i:nth-child(2) { width: 90%; }
+.mock i:nth-child(3) { width: 76%; }
+.mock i:nth-child(4) { width: 84%; }
+.mock i:nth-child(5) { width: 58%; }
+
+/* Sticker */
+.badge {
+  position: absolute;
+  z-index: 4;
+  right: 108px;
+  top: 300px;
+  max-width: 46%;
+  padding: 18px 22px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--display), sans-serif;
+  font-weight: var(--display-weight);
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: var(--tracking);
+  text-transform: uppercase;
+  transform: rotate(var(--sticker-rotate));
+}
+html[data-ratio="landscape"] .badge { right: 96px; top: 168px; font-size: 28px; }
+html[data-subject="sigmahack"] .badge { box-shadow: 8px 8px 0 var(--accent-ink); }
+html[data-subject="ugc"] .badge {
+  background: var(--accent-2);
+  color: var(--accent-2-ink);
+  box-shadow: 7px 7px 0 var(--panel-ink);
+}
+html[data-subject="dossair"] .badge {
+  background: var(--panel-bg);
+  color: var(--panel-ink);
+  border: 1px solid var(--panel-ink);
+  box-shadow: none;
+  font-family: var(--text-face), sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.16em;
+  padding: 12px 14px;
+}
+
+/* Closing CTA */
+html[data-layout="cta"] .hero { max-width: 13em; }
+.action { margin-top: 32px; align-self: flex-start; }
+.action.quiet .rule { margin: 10px 0 0; }
+.action.fill {
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 20px 26px;
+}
+html[data-subject="ugc"] .action.fill {
+  font-family: var(--display), sans-serif;
+  font-weight: var(--display-weight);
+  font-size: 40px;
+  letter-spacing: 0.04em;
+  line-height: 0.9;
+  text-transform: uppercase;
+  padding: 18px 22px;
+}
+html[data-subject="sigmahack"] .action.fill {
+  font-family: var(--display), sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+html[data-subject="dossair"] .action.quiet span {
+  font-size: calc(var(--body-size) * 1.05);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
