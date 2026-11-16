@@ -1,0 +1,42 @@
+{
+  "id": "dossair-one-page",
+  "platform": "instagram",
+  "subject": "dossair",
+  "theme": "dark",
+  "caption": "A brief that needs a meeting is not finished.\n\nOne page: the reader, the decision, the risk, the date. Write that before you open a deck.",
+  "slides": [
+    {
+      "layout": "headline",
+      "kicker": "Field note",
+      "headline": "A brief should fit on one page.",
+      "body": "If it needs a follow-up meeting, it is not done.",
+      "background": "assets/backgrounds/dossair-field.svg"
+    },
+    {
+      "layout": "split",
+      "kicker": "The cut",
+      "headline": "Keep the decision. Lose the tour.",
+      "body": "Name the reader, the choice, and the risk. Everything else is a tour of your notes."
+    },
+    {
+      "layout": "checklist",
+      "kicker": "On the page",
+      "headline": "Four lines, then stop.",
+      "body": "The reader\nThe decision\nThe risk you accept\nThe date it goes live"
+    },
+    {
+      "layout": "stat",
+      "kicker": "After the cut",
+      "stat": "1 page",
+      "headline": "People actually read it.",
+      "body": "Long briefs get skimmed. Short briefs get used."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Next brief",
+      "headline": "Write the page before the slides.",
+      "body": "Send it without a preamble.",
+      "cta": "Save this for Monday"
+    }
+  ]
+}

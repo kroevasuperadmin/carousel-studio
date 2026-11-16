@@ -1,0 +1,43 @@
+{
+  "id": "sigmahack-plain-hook",
+  "platform": "instagram",
+  "subject": "sigmahack",
+  "theme": "acid",
+  "caption": "If the first line sounds like a course, it is not a hook.\n\nSay the useful thing in four words. Then stop fiddling with it.",
+  "slides": [
+    {
+      "layout": "sticker",
+      "kicker": "Sigma, quietly",
+      "headline": "Your hook is doing too much.",
+      "body": "Say the useful thing first.",
+      "cta": "Say it plain",
+      "background": "assets/backgrounds/sigma-poster.svg"
+    },
+    {
+      "layout": "headline",
+      "kicker": "The tell",
+      "headline": "If it sounds like a course, cut it.",
+      "body": "A course sells a feeling. You are posting a point."
+    },
+    {
+      "layout": "stat",
+      "kicker": "A fair test",
+      "stat": "4 words",
+      "headline": "That is the whole test.",
+      "body": "If the opening is mush, the rest will not save it."
+    },
+    {
+      "layout": "checklist",
+      "kicker": "Steal this",
+      "headline": "Read the first line aloud.",
+      "body": "Would you say this to a friend\nDoes it name a real thing\nCan you stop after four words\nIs the joke doing any work"
+    },
+    {
+      "layout": "cta",
+      "kicker": "Then stop",
+      "headline": "Post the plain line today.",
+      "body": "Cheeky is fine. Fog is not.",
+      "cta": "Done beats clever"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "sigmahack-ugly-ship",
+  "platform": "x",
+  "subject": "sigmahack",
+  "theme": "dark",
+  "caption": "The ugly version did more than another week of polish.\n\nShip the cut you are hiding. Sand it when someone cares.",
+  "slides": [
+    {
+      "layout": "headline",
+      "kicker": "Ship log",
+      "headline": "The ugly cut taught us more.",
+      "body": "Polish is a second draft, not a personality."
+    },
+    {
+      "layout": "compare",
+      "kicker": "Two weeks",
+      "headline": "Waiting looked like taste.",
+      "body": "Another pass on the logo while nobody used it.\n\nShipped the rough cut. Twenty people named what was wrong."
+    },
+    {
+      "layout": "timeline",
+      "kicker": "The week",
+      "headline": "Ugly, then less ugly.",
+      "body": "Mon | Post the rough cut.\nWed | Read every reply.\nFri | Change the thing they named."
+    },
+    {
+      "layout": "stat",
+      "kicker": "What moved",
+      "stat": "20 notes",
+      "headline": "Real notes beat a quiet launch.",
+      "body": "Silence is not a sign of quality."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Your move",
+      "headline": "Ship the one you are hiding.",
+      "body": "Sand it after someone cares.",
+      "cta": "Post it this week"
+    }
+  ]
+}

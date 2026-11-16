@@ -1,0 +1,35 @@
+{
+  "name": "carousel-studio",
+  "version": "1.0.0",
+  "description": "Turn written slide copy into finished social carousels.",
+  "type": "module",
+  "scripts": {
+    "render": "node render.mjs --all",
+    "lint": "node render.mjs lint",
+    "samples": "node render.mjs --all --out samples",
+    "test": "node --test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kroevasuperadmin/carousel-studio.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kroevasuperadmin/carousel-studio/issues"
+  },
+  "homepage": "https://github.com/kroevasuperadmin/carousel-studio#readme",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@fontsource/big-shoulders-display": "^5.3.0",
+    "@fontsource/figtree": "^5.3.0",
+    "@fontsource/ibm-plex-sans": "^5.3.0",
+    "@fontsource/newsreader": "^5.3.0",
+    "@fontsource/outfit": "^5.3.0",
+    "@fontsource/unbounded": "^5.3.0",
+    "jszip": "^3.10.2",
+    "playwright": "^1.64.1",
+    "pngjs": "^7.0.0"
+  }
+}

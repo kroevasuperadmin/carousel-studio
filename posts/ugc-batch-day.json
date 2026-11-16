@@ -1,0 +1,48 @@
+{
+  "id": "ugc-batch-day",
+  "platform": "instagram",
+  "subject": "ugc",
+  "theme": "light",
+  "caption": "Batch the week before you touch the camera.\n\nSix lines, one setup, one afternoon. The schedule is the energy.",
+  "slides": [
+    {
+      "layout": "headline",
+      "kicker": "Studio day",
+      "headline": "Batch the week before the camera.",
+      "body": "Energy is a schedule, not a mood."
+    },
+    {
+      "layout": "frame",
+      "kicker": "The board",
+      "headline": "Six slots. One afternoon.",
+      "body": "Hook, proof, offer, proof, story, close.",
+      "background": "assets/backgrounds/ugc-board.svg"
+    },
+    {
+      "layout": "split",
+      "kicker": "Before you roll",
+      "headline": "Write the line before you roll.",
+      "body": "The hour dies when you choose lines on camera. Write six first. Record them in order."
+    },
+    {
+      "layout": "checklist",
+      "kicker": "The run",
+      "headline": "Same setup, six lines.",
+      "body": "Light stays where it is\nClothes stay as they are\nYou only change the line\nYou stop when six are done"
+    },
+    {
+      "layout": "sticker",
+      "kicker": "A nudge",
+      "headline": "Stop filming openings you will cut.",
+      "body": "The list is the work.",
+      "cta": "Write first"
+    },
+    {
+      "layout": "cta",
+      "kicker": "Tomorrow",
+      "headline": "Put six lines on a card.",
+      "body": "Post them like you mean it.",
+      "cta": "Batch Thursday"
+    }
+  ]
+}
